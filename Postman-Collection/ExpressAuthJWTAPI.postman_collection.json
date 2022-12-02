@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "a694a47a-ed54-48c5-80b3-1bf51e48a62a",
+		"name": "ExpressAuthJWTAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23450984"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Saurabh Mishra\",\r\n    \"email\":\"saurabhmishra195@wohlig.com\",\r\n    \"password\":\"123456\",\r\n    \"password_confirmation\":\"123456\",\r\n    \"tc\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"saurabhmishra195@wohlig.com\",\r\n    \"password\":\"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change User Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoiNjM4OWNlN2MyNGFkNjkwYTIwZjk5YTYxIiwiaWF0IjoxNjY5OTc1NjkzLCJleHAiOjE2NzAwNjIwOTN9.TaNPk0LuHDboXIJF_8tNprjxc2cxHeRIZShFf0BMKF0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"1234567\",\r\n    \"password_confirmation\":\"1234567\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/changepassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"changepassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logged User Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoiNjM4OWNlN2MyNGFkNjkwYTIwZjk5YTYxIiwiaWF0IjoxNjY5OTc1NjkzLCJleHAiOjE2NzAwNjIwOTN9.TaNPk0LuHDboXIJF_8tNprjxc2cxHeRIZShFf0BMKF0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2MjE3NDg0MWNkYjYwNDBmMWU2NzI4M2YiLCJpYXQiOjE2NDU2OTMwMTIsImV4cCI6MTY0NjEyNTAxMn0.pHa_3QxsAy0hSFEfp4RYrmGecAARUwIIhB8K73SolBU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/loggeduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"loggeduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Password Reset Email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"saurabhmishra195@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/send-reset-password-email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"send-reset-password-email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Password Reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"123456789\",\r\n    \"password_confirmation\":\"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/reset-password/638857b109e086330c978975/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoiNjM4ODU3YjEwOWUwODYzMzBjOTc4OTc1IiwiaWF0IjoxNjY5OTc1Nzk0LCJleHAiOjE2Njk5NzY2OTR9.prYUNv4HM4CpzVZ3g41U7UFPhGeBG1JfEm_o6RaJ7wU",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reset-password",
+						"638857b109e086330c978975",
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyX0lEIjoiNjM4ODU3YjEwOWUwODYzMzBjOTc4OTc1IiwiaWF0IjoxNjY5OTc1Nzk0LCJleHAiOjE2Njk5NzY2OTR9.prYUNv4HM4CpzVZ3g41U7UFPhGeBG1JfEm_o6RaJ7wU"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
